@@ -1,0 +1,2 @@
+flask-restful==0.3.10
+gigachat==0.1.31
