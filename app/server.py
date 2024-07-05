@@ -14,7 +14,9 @@ class GigaChatResponse(Resource):
         params = parser.parse_args()
         query = params.get("query")
         answer = get_answer(query)
-        return answer, 200
+        return {
+            "answer": answer
+        }, 200
 
 
 api.add_resource(GigaChatResponse, "/gigachat", "/gigachat/")
