@@ -7,7 +7,7 @@ app = Flask(__name__)
 api = Api(app)
 
 
-class GigaChatResponse(Resource):
+class ModelResponse(Resource):
     def get(self, query: str=""):
         parser = reqparse.RequestParser()
         parser.add_argument("query")
@@ -19,6 +19,6 @@ class GigaChatResponse(Resource):
         }, 200
 
 
-api.add_resource(GigaChatResponse, "/gigachat", "/gigachat/")
+api.add_resource(ModelResponse, "/model", "/model/")
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')

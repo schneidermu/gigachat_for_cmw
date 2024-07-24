@@ -1,13 +1,6 @@
-FROM python:3-alpine
+FROM python:3.10
 
-RUN apk add --virtual .build-dependencies \ 
-            --no-cache \
-            python3-dev \
-            build-base \
-            linux-headers \
-            pcre-dev
-
-RUN apk add --no-cache pcre
+RUN apt-get update
 
 WORKDIR /app
 COPY /app /app
@@ -15,7 +8,7 @@ COPY ./requirements.txt /app
 
 RUN pip install -r /app/requirements.txt
 
-RUN apk del .build-dependencies && rm -rf /var/cache/apk/*
+RUN pip install llama-cpp-python --prefer-binary --no-cache-dir --extra-index-url=https://jllllll.github.io/llama-cpp-python-cuBLAS-wheels/AVX2/cpu/
 
 EXPOSE 5000
 CMD ["uwsgi", "--ini", "/app/wsgi.ini"]

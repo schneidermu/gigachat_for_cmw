@@ -1,9 +1,9 @@
 ```
-touch app/.env
+mkdir app/models
 ```
 ```
-docker build -t gigachat .
+docker build -t model .
 ```
 ```
-docker run -p 5000:5000 gigachat
+docker run -p 5000:5000 model
 ```

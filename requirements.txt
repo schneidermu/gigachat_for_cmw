@@ -1,4 +1,6 @@
 flask-restful==0.3.10
-gigachat==0.1.31
 python_dotenv==1.0.1
 uwsgi
+langchain
+langchain_community
+langchain_core
