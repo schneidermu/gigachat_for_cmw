@@ -32,4 +32,5 @@ llm_chain = LLMChain(llm=llm, prompt=prompt)
 
 
 def get_answer(query):
-    return llm_chain.run(query)
+  answer = llm_chain.run(query)
+  return answer
