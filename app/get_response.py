@@ -19,7 +19,6 @@ prompt = ChatPromptTemplate.from_messages(
 )
 
 ABS_PATH = os.path.dirname(os.path.abspath(__file__))
-model_path = os.path.join(ABS_PATH, "models/model-q4_K.gguf")
 
 callback_manager = CallbackManager([StreamingStdOutCallbackHandler()])
 

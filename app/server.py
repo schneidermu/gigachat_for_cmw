@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 from flask_restful import Api, Resource, reqparse
 
 from get_response import get_answer
@@ -9,10 +9,7 @@ api = Api(app)
 
 class ModelResponse(Resource):
     def get(self, query: str=""):
-        parser = reqparse.RequestParser()
-        parser.add_argument("query")
-        params = parser.parse_args()
-        query = params.get("query")
+        query = request.args.get('query')
         answer = get_answer(query)
         return {
             "answer": answer
