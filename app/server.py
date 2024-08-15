@@ -10,7 +10,12 @@ api = Api(app)
 class ModelResponse(Resource):
     def get(self, query: str=""):
         query = request.args.get('query')
+        print("Запрос:", query)
         answer = get_answer(query)
+        print("Ответ:", answer)
+        text_bytes = answer.encode('utf-8')
+        with open("output.bin", "wb") as binary_file:
+            binary_file.write(text_bytes)
         return {
             "answer": answer
         }, 200
