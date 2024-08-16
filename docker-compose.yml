@@ -1,0 +1,9 @@
+services:
+  gigachat:
+  build:
+    context: .
+    dockerfile: Dockerfile
+  environment:
+    CREDENTIALS: "credentials"
+  command:
+    uwsgi --ini /app/wsgi.ini
