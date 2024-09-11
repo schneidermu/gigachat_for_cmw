@@ -1,9 +1,11 @@
 services:
   gigachat:
-  build:
-    context: .
-    dockerfile: Dockerfile
-  environment:
-    CREDENTIALS: "credentials"
-  command:
-    uwsgi --ini /app/wsgi.ini
+    environment:
+      CREDENTIALS: "CREDS"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 5000:5000
+    command:
+      uwsgi --ini /app/wsgi.ini
